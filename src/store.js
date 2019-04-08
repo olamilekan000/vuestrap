@@ -12,7 +12,6 @@ export default new Vuex.Store({
   mutations: {
   	getMeal(state, meal) {
   		state.meal = [...meal]
-  		console.log('mutations', state.meal)
   	}
   },
   actions: {
@@ -20,8 +19,6 @@ export default new Vuex.Store({
   		axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`)
   			.then((res) => {
   				commit('getMeal', res.data.meals)
-  				console.log(res.data.meals)
-  				// console.log('actions', this.$store.state.meal)
   			})
   			.catch(err => {
   				console.log(err)

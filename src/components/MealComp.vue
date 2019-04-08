@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1>hey</h1>
+		<h1></h1>
 		<b-container>
 			<div centered>
 				<div v-if="meals.length > 0">
