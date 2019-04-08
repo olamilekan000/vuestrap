@@ -1,4 +1,4 @@
-# somethingvue
+# Vuestrap
 
 ## Project setup
 ```
