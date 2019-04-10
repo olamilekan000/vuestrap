@@ -27,9 +27,6 @@ export default new Vuex.Store({
   		state.meal = [...meal]
 	  },
 	// eslint-disable-next-line space-before-blocks
-	getMeals(state, meals){
-		state.meals = [...meals]
-	}
   },
   actions: {
   	getAMeal({commit}, meal) {
@@ -46,7 +43,6 @@ export default new Vuex.Store({
 		.get("https://www.themealdb.com/api/json/v1/1/categories.php")
 		.then(response => {
 			localStorage.setItem("meals", JSON.stringify(response.data.categories));
-			commit('getMeals', response.data.categories)
 		})
 		.catch(err => {
 		  console.log(err);
