@@ -13,7 +13,9 @@
               style="max-width: 20rem;"
               class="mb-2">
               <b-card-text>{{ `${data.strCategoryDescription.slice(0,100)}...` }}</b-card-text>
-              <b-button variant="primary">View food</b-button>
+              <router-link :to="'/meal/' + data.idCategory">
+              	<b-button variant="primary">View food</b-button>              	
+              </router-link>
             </b-card>
           </b-col>
         </div>

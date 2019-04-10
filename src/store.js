@@ -20,7 +20,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
 	  meal: [],
-	  meals:[]
+		meals: JSON.parse(localStorage.getItem('meals'))
   },
   mutations: {
   getMeal(state, meal) {
@@ -45,6 +45,7 @@ export default new Vuex.Store({
 		axios
 		.get("https://www.themealdb.com/api/json/v1/1/categories.php")
 		.then(response => {
+			localStorage.setItem("meals", JSON.stringify(response.data.categories));
 			commit('getMeals', response.data.categories)
 		})
 		.catch(err => {

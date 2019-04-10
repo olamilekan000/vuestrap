@@ -1,12 +1,13 @@
 <template>
   <div>
-    <h3 class="App"></h3>
+    <h1></h1>
     <Cards />
   </div>
 </template>
 
 <script>
 import Cards from './Cards.vue'
+
 export default {
   name:'cards',
   components: {
@@ -14,10 +15,13 @@ export default {
   },
   data() {
     return {
-      
+      hello: 'Hello, all is well!',
     };
   },
 };
 </script>
+
+
 <style scoped>
+
 </style>
