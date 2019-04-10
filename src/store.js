@@ -1,18 +1,35 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable quotes */
+/* eslint-disable object-curly-spacing */
+/* eslint-disable space-before-blocks */
+/* eslint-disable arrow-parens */
+/* eslint-disable semi */
+/* eslint-disable key-spacing */
+/* eslint-disable comma-dangle */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-tabs */
+/* eslint-disable indent */
+/* eslint-disable no-console */
+/* eslint-disable no-mixed-spaces-and-tabs */
 import Vue from 'vue';
 import Vuex from 'vuex';
-
 import axios from 'axios'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-  	meal: []
+	  meal: [],
+	  meals:[]
   },
   mutations: {
-  	getMeal(state, meal) {
+  getMeal(state, meal) {
   		state.meal = [...meal]
-  	}
+	  },
+	// eslint-disable-next-line space-before-blocks
+	getMeals(state, meals){
+		state.meals = [...meals]
+	}
   },
   actions: {
   	getAMeal({commit}, meal) {
@@ -23,6 +40,16 @@ export default new Vuex.Store({
   			.catch(err => {
   				console.log(err)
   			})	
-  	}
+	  },
+	getAllMeals({commit}){
+		axios
+		.get("https://www.themealdb.com/api/json/v1/1/categories.php")
+		.then(response => {
+			commit('getMeals', response.data.categories)
+		})
+		.catch(err => {
+		  console.log(err);
+		});
+	  }
   },
 });
